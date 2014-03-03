@@ -3,10 +3,15 @@
 \label{sec:implementation}
 
 \subsection{Dataset}
+We selected 1670 cities in the United States of America having population greater than 20000.
 
 \subsection{Creation of Background Knowledge}
-Wikipedia is a crowd sourced encyclopedia. 
-We selected 1670 cities in the United States of America having population greater than 20000.%cite here
+Wikipedia is a crowd sourced encyclopedia. Links to internal Wikipedia pages from a given page are an important feature of all Wikipedia pages. The aim of these links is to increase the understanding of a user about the given page. For instance, the Wikipedia page of \textit{Boston, Massachusetts} \footnote{http://en.wikipedia.org/wiki/Boston} mentions the \textit{Boston Red Sox}, in the Sports section. It also provides a hyperlink to Boston Red Sox, that allows the user to navigate to the Wikipedia page of \textit{Boston Red Sox}. We base our approach on the assumption that these internal links share varying degrees of association with the Wikipedia page of the city. As in the previous example, the Wikipedia page of Boston also contains an internal link to \textit{Major League Baseball} which would be less representative of Boston than the \textit{Boston Red Sox}. 
+
+The entire collection of Wikipedia is available for download\footnote{http://en.wikipedia.org/wiki/Wikipedia:Database\_download}. We use this dump to extract the 
+the internal links from the Wikipedia pages of all the cities in our dataset.
 
 \subsection{Scoring City-specific Entities}
 
+
+Mendes et al. \cite{mendes2011dbpedia} proposed \textit{Inverse Candidate Frequency} 

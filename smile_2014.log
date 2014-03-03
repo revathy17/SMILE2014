@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.2.5)  2 MAR 2014 23:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.2.5)  3 MAR 2014 16:15
 entering extended mode
  %&-line parsing enabled.
 **smile_2014.tex
@@ -296,39 +296,39 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 89.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) (./introduction.tex)
-(./related.tex [1
+) (./introduction.tex
+[1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `rout2013s' on page 2 undefined on input line 12.
-
-) (./implementation.tex) (./smile_2014.bbl [2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./related.tex)
+(./implementation.tex [2]) (./smile_2014.bbl
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no ™ in font cmr9!
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no ™ in font cmr9!
-) [3] (./smile_2014.aux) ) 
+ [3]) [4] (./smile_2014.aux) ) 
 Here is how much of TeX's memory you used:
- 3312 strings out of 495061
- 43935 string characters out of 1182622
+ 3335 strings out of 495061
+ 44180 string characters out of 1182622
  131737 words of memory out of 3000000
- 6453 multiletter control sequences out of 15000+50000
- 7809 words of font info for 30 fonts, out of 3000000 for 9000
+ 6469 multiletter control sequences out of 15000+50000
+ 10958 words of font info for 42 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 29i,6n,36p,1274b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmti9.pfb>
-Output written on smile_2014.pdf (3 pages, 106869 bytes).
+ 29i,9n,36p,1274b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmb
+x12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb
+>
+Output written on smile_2014.pdf (4 pages, 144377 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 51 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

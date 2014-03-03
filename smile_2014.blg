@@ -2,44 +2,44 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: smile_2014.aux
 The style file: plain.bst
 Database file #1: smile_2014.bib
-You've used 5 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            523 strings with 5109 characters,
-and the built_in function-call counts, 1958 in all, are:
-= -- 192
-> -- 110
-< -- 2
-+ -- 43
-- -- 38
-* -- 133
-:= -- 327
-add.period$ -- 17
-call.type$ -- 5
-change.case$ -- 34
+            534 strings with 5602 characters,
+and the built_in function-call counts, 2898 in all, are:
+= -- 289
+> -- 156
+< -- 4
++ -- 61
+- -- 54
+* -- 195
+:= -- 470
+add.period$ -- 25
+call.type$ -- 7
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 76
-empty$ -- 135
-format.name$ -- 38
-if$ -- 414
+cite$ -- 7
+duplicate$ -- 116
+empty$ -- 208
+format.name$ -- 54
+if$ -- 626
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 5
-newline$ -- 28
-num.names$ -- 10
-pop$ -- 38
+int.to.str$ -- 7
+missing$ -- 7
+newline$ -- 38
+num.names$ -- 14
+pop$ -- 58
 preamble$ -- 1
-purify$ -- 29
+purify$ -- 41
 quote$ -- 0
-skip$ -- 58
+skip$ -- 85
 stack$ -- 0
-substring$ -- 89
-swap$ -- 25
-text.length$ -- 2
+substring$ -- 139
+swap$ -- 41
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 28
 warning$ -- 0
-while$ -- 16
-width$ -- 6
-write$ -- 57
+while$ -- 26
+width$ -- 8
+write$ -- 81

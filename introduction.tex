@@ -6,7 +6,9 @@ The power of social media was demonstrated during Hurricane Sandy when more that
 
 Current approaches to detect location based on the content of tweets focus on building statistical models using a training dataset of tweets. In this paper we propose an approach that uses Wikipedia as a knowledge base to identify words with a local geographic scope. Our objective is to show that words having a strong association with a particular location, can be determined using the information available in Wikipedia.
 
-Wikipedia is a large encyclopedia containing dedicated pages for cities. Proportional to the size of the city, its Wikipedia page generally contains a variety of information about the city like its geography, culture, sports teams, cityscape, transportation etc. Our hypothesis is that by spotting entity in tweets and correlating them with the occurrence of Wikipedia entities for a given city, we can identify the location of a user. 
+Wikipedia is a large encyclopedia containing dedicated pages for cities. Proportional to the size of the city, its Wikipedia page generally contains a variety of information about the city like its geography, culture, sports teams, cityscape, transportation etc.The information is very detailed for a bigger city like Paris\footnote{http://en.wikipedia.org/wiki/Paris} (population of 12 M) and significantly lower for a smaller county like Monroe County, Wisconsin\footnote{http://en.wikipedia.org/wiki/Monroe\_County,\_Wisconsin} (population of 44 K). 
+
+Our hypothesis is that by spotting entity in tweets and correlating them with the occurrence of Wikipedia entities for a given city, we can identify the location of a user. As in statistical methods, we do not need to manually collect seed words for each city of interest nor do we need a large training dataset to select the local words.
 
 
 

@@ -19,6 +19,12 @@ Jeffrey McGee, James Caverlee, and Zhiyuan Cheng.
   Conference on information \& knowledge management}, pages 459--468. ACM,
   2013.
 
+\bibitem{mendes2011dbpedia}
+Pablo~N Mendes, Max Jakob, Andr{\'e}s Garc{\'\i}a-Silva, and Christian Bizer.
+\newblock Dbpedia spotlight: shedding light on the web of documents.
+\newblock In {\em Proceedings of the 7th International Conference on Semantic
+  Systems}, pages 1--8. ACM, 2011.
+
 \bibitem{morstatter2013sample}
 Fred Morstatter, J{\"u}rgen Pfeffer, Huan Liu, and Kathleen~M Carley.
 \newblock Is the sample good enough? comparing data from twitter’s streaming
@@ -30,5 +36,12 @@ Hemant Purohit, Carlos Castillo, Fernando Diaz, Amit Sheth, and Patrick Meier.
 \newblock Emergency-relief coordination on social media: Automatically matching
   resource requests and offers.
 \newblock {\em First Monday}, 19(1), 2013.
+
+\bibitem{rout2013s}
+Dominic Rout, Kalina Bontcheva, Daniel Preo{\c{t}}iuc-Pietro, and Trevor Cohn.
+\newblock Where's@ wally?: a classification approach to geolocating users based
+  on their social ties.
+\newblock In {\em Proceedings of the 24th ACM Conference on Hypertext and
+  Social Media}, pages 11--20. ACM, 2013.
 
 \end{thebibliography}
