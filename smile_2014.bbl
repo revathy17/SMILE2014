@@ -7,6 +7,18 @@ Zhiyuan Cheng, James Caverlee, and Kyumin Lee.
 \newblock In {\em Proceedings of the 19th ACM international conference on
   Information and knowledge management}, pages 759--768. ACM, 2010.
 
+\bibitem{ferrara2012web}
+Emilio Ferrara, Pasquale De~Meo, Giacomo Fiumara, and Robert Baumgartner.
+\newblock Web data extraction, applications and techniques: a survey.
+\newblock {\em arXiv preprint arXiv:1207.0246}, 2012.
+
+\bibitem{mcgee2013location}
+Jeffrey McGee, James Caverlee, and Zhiyuan Cheng.
+\newblock Location prediction in social media based on tie strength.
+\newblock In {\em Proceedings of the 22nd ACM international conference on
+  Conference on information \& knowledge management}, pages 459--468. ACM,
+  2013.
+
 \bibitem{morstatter2013sample}
 Fred Morstatter, J{\"u}rgen Pfeffer, Huan Liu, and Kathleen~M Carley.
 \newblock Is the sample good enough? comparing data from twitter’s streaming
