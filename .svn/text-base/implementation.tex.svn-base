@@ -1,0 +1,121 @@
+ 
+\section{Implementation and Use Case in SMOB}
+\label{sec:implementation}
+\begin{figure}[t!]
+\centering
+\includegraphics[width = 9.0 cm]{./images/sequence_smob.png}
+%\vspace*{-0.75em}
+\caption{Sequence of Interactions SMOB.}
+%% TODO - There's atypo on "1", it must be "coming soon"
+%% TODO - What is B&D in 7 ?
+
+\label{fig:smobfig}
+\end{figure}
+
+%\The semantic broadcasting protocol when applied on any online social network would change the terminology from (1) Subscribers to Followers (2) Publishers to Followees (3) Topic to Followee's Timeline (4) Items to microposts. We implemented the protocol for SMOB. SMOB is a Social Semantic Web applicvation that combines the existing Semantic Web paradigms with Linked Data technologies. Previously, SMOB used googles hub\footnote{http://pubsubhubbub.appspot.com/} that implements the pubsubhubbub protocol for broadcasting of microposts. The implementation can be mainly classified based on the participants 
+
+SMOB - \url{http://smob.me} is a open and distributed semantic microblogging application combining Semantic Web standards and Linked Data principles with State-of-the-art social networking protocols. In the microblogging context, it is common to use the \textit{follower} and \textit{followee} terms, where the \textit{follower} is a user who follows another user's timeline (i.e. her/his microblog posts) and the \textit{followee} is the user generating content and being followed. A user can be both a follower and a followee, and can have multiple followers and followees. Combining the PuSH terminology with this one, we have: a follower is a PuSH \textit{Subcriber}, a followee is a PuSH \textit{Publisher}, a PuSH feed/topic is the \textit{User's Timeline} and each micropost is a PuSH \textit{item} in the feed.
+
+SMOB used the PuSH implementation (using Google's public hub\footnote{\url{http://pubsubhubbub.appspot.com/}}) to broadcast feeds. But privacy was still a concern. We now present the step by step implementation of our protocol in SMOB, enabling both privacy-awareness and scalability when distributing microblog posts.
+
+There is an screencast of the full process available at \url{http://smob.me/video}
+
+\subsection{SMOB Hub-User Initial Interaction}
+\label{smob-foaf}
+The Semantic Hub creates a SSG of the users communicating via the Hub using the same process than the one explained in Section \ref{sec:foaf}. We had to distinguish between the user's social connections on FOAF and the ones in SMOB. For example, in Fig. \ref{fig:smobfig} the access query just mentions all users interested in Semantic Web, whereas we need only (in this subset) those who are followers of SMOB-A. Hence, we modeled the social activities over the Semantic Hub.
+
+We created a lightweight vocabulary for PuSH and SMOB. Fig. \ref{fig:ontology} depicts our vocabulary, where classes and properties are mapped to the terminology used in core specification of PubSubHubbub \cite{pushspec}. The full specification is available at \url{http://vocab.deri.ie/push}. 
+%% TODO - we should mention in the introduction what are our contributions, and include this one. Eg.g "Our major contrivutions described in this paper are:"
+%% TODO - is that push:topic ? 
+ As per specification, the PuSH Topic represents the feed of the Publisher. In SMOB, there is a one to one relationship between the Publisher and his Feed. We are thus using \texttt{sioc:UserAccount} to each user communicating via the SemanticHub. Instances of \texttt{sioc:UserAccount} are linked to PuSH Topics with appropriate properties. 
+% TODO - can you describe these properties ?
+We introduced: 
+\begin{itemize}
+  \item \texttt{push:has\_hub} to express the relationship between the PuSH Topic and the Semantic Hub. Semantic Hub is considered to be a FOAF Agent.
+%% TODO - the previous thing is weird, we cannot say that a Hub (something online) ois a foaf:Person
+  \item \texttt{push:has\_callback} to express the relationship between Subscriber and its callback URL which is of type \texttt{rdfs:Resource}. 
+\end{itemize}
+Added relations stored with followee's FOAF are \linebreak\begin{inparaenum}[(1)]
+  \item newly created unique \texttt{sioc:UserAccount};
+  \item relation to the PuSH Topic (Followee's Timeline) she/he is creating; and
+  \item PuSH Topic related to the Semantic Hub. 
+\end{inparaenum}
+The follower also has similar properties, i.e. \begin{inparaenum}[(1)]
+  \item newly created unique \texttt{sioc:UserAccount};
+  \item relation to the PuSH Topic (Follower's timeline) he/she is subscribing to; and
+  \item Callback URL of the Subscriber. 
+\end{inparaenum}
+When a follower wants to unfollow a followee, the follower's relation with the PuSH Topic (Followee's timeline) is simply removed. % until she/he is not following anyone, finally deleting all his information.
+ 
+\begin{figure}[t!]
+\centering
+\includegraphics[width = 10.0 cm]{./images/ontology.png}
+%\vspace*{-0.75em}
+\caption{Vocabulary to represent PuSH information in RDF.}
+\label{fig:ontology}
+\end{figure}
+
+\subsection{SMOB Followee - Publishing}
+\label{sec:smobuser}
+
+Since SMOB is a semantic microblogging service, it already includes an Arc2 triple store during installation. Therefore the requirement for the Publishers to include a triple store in our protocol was fulfilled. The same RDF store is used to store and retrieve the privacy preferences of the corresponding user.
+
+Further, we frequently refer to Fig. \ref{fig:smobfig} to explain the use case. SMOB-A is the Followee, SMOB-B SMOB-C and SMOB-D are followers of SMOB-A. 
+
+A SMOB user (SMOB-A) has to generate privacy preferences (Section \ref{sec:privacy}) for controlling his content distribution. In SMOB, the categorization of microposts is done using ``semantic hashtags'' mentioned in the micropost (i.e. tags linked to resources from the LOD cloud using models such as MOAT\footnote{\url{http://moat-project.org}} or CommonTag\footnote{\url{http://commontag.org}}). Hence, we map these tags to the privacy preferences to enable the privacy in content distribution.
+As shown in the Fig. \ref{fig:smobppinterface}, we have build a simple user-interface to let users create such a setting without prior knowledge of SPARQL or the Semantic Web. Both the hashtag and the interest are looked-up in DBPedia\footnote{\url{http://dbpedia.org/}} and Sindice\footnote{\url{http://sindice.com/}} and the concepts are suggested to the user. Once the user selects the intended concepts, the resulting Privacy Preference is stored in the local triple store. For example, Fig. \ref{fig:smobppinterface} shows the interface to create the privacy preferences where the microposts tagged with \#rdf, should be sent only to those followers who are interested in Semantic Web.
+Also, we offer the ability to restrict based on the relation that people share together, using the RELATIONSHIP vocabulary. The main advantage compared to pre-defined groups is that the settings are automatically updated based on the user's attribute, in almost real-time since the Semantic Hub stores users' profiles\footnote{As said earlier, so far, we assume that the information provided in FOAF profile is correct, or at least should be trusted - which is legally the case with WebID as it requires a certificate which implies some real trust settings.}
+%% TODO: I'm not sure how to explain the previous one but IMO if you're giving your certificate to someone this person should - the first time - read your ID / passport to be sure it's you right ? or is that only for PGP ?
+%% TODO -
+Once again, these two use-cases are just an example, and the privacy settings could be further enhanced.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width = 11.0 cm]{./images/Screenshot}
+%\vspace*{-0.75em}
+\caption{Privacy Settings interface in SMOB}
+\label{fig:smobppinterface}
+\end{figure}
+
+When SMOB-A is creating a new micropost and tags it with the \#rdf hashtag (Step 1 of Fig. \ref{fig:smobfig}) , the SMOB interface suggests links to the resources with that label from DBPedia and Sindice in a similar way as for the privacy settings. Once the micropost is posted, SMOB-A queries the local triple store for \textit{access spaces} matching the URI representing the hashtag \#rdf (Step 2, 3 of Fig. \ref{fig:smobfig}). The \textit{access space} is embeded into the RSS feed of SMOB-A. 
+
+%\begin{figure}
+%\begin{lstlisting}
+%<item rdf:about="http://example.org/post/2011-04-27T14:26:46+02:00">
+%<title>publisher112</title>
+%<link>http://example.org/post/2011-04-27T14:26:46+02:00</link>
+%<description>publisher112</description>
+%<dc:date>2011-04-27T14:26:46+02:00</dc:date>
+%<privacy>
+%	<accessspace> "SELECT ?user WHERE {?user foaf:topic_interest ?topic .
+%			?topic dcterms:subject category:Semantic_Web .}"</accessspace>
+%</privacy>
+%<content:encoded><![CDATA[
+%<http://example.org/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+%<http://smob.me/ns\#Hub> .
+%<http://sws.geonames.org/2964180/> <http://www.w3.org/2000/01
+%/rdf-schema\#label> "Galwaycity, Ireland (seat of a second-order administrative
+%division)"^^<http://www.w3.org/2001/XMLSchema\#string> .
+%<http://example.org/post/2011-04-27T14:26:46+02:00> <http://www.w3.org
+%/1999/02/22-rdf-syntax-ns\#type> <http://rdfs.org/sioc/types\#MicroblogPost> .
+%...
+%</content:encoded>
+%</item>
+%\end{lstlisting}
+%\label{fig:smobrss}
+%\caption{Example SMOB Micropost RSS feed.}
+%\end{figure}
+
+The SMOB Followee then notifies the Semantic Hub about the update (Step 4 in Fig. \ref{fig:smobfig}).  
+
+\subsection{SMOB Semantic Hub - Distribution}
+\label{sec:smobhub}
+
+Querying data to and from the Semantic Hub triple store is performed using the Python SPARQLWrapper\footnote{\url{http://sparql-wrapper.sourceforge.net/}}. The wrapper is entirely HTTP-based, thus gives the flexibility to deploy the RDF store in any environment and access it remotely. To maintain privacy of the profiles, the SPARQL endpoint is accessible only by the Semantic Hub.
+
+
+After SMOB-A notifies the Semantic Hub about the update, the Semantic Hub fetches the feed and, for the newly created microposts extracts the \textit{access space}. Before the access query is executed, more conditions are added based on the corresponding relations added during FOAF profiles storage (Section \ref{smob-foaf}). In this use-case conditions are added to retrieve the callback URLs of the followers, who holds a sioc account subscribed to SMOB-A's topic. The \textit{access space} is executed against the SSG of SMOB-A in conjunction with the above conditions (Step 5 in Fig. \ref{fig:smobfig}) and the list of users (SMOB-B and SMOB-D) matching the SPARQL query are returned (Step 6 in Fig. \ref{fig:smobfig}). SMOB-B and SMOB-D matched because their interests are in the category of ``Semantic Web" where as SMOB-C has interest ``Computer Networks" which does not fall into the category restricted by SMOB-A. 
+
+
+%Publishers can be their own hubs
+%FOAF creation in SMOB. Modelling and usages.

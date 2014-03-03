@@ -1,0 +1,9 @@
+\section{Related Work}
+\label{sec:RelatedWork}
+There have been two main approaches in addressing the problem of location identification of a twitter user: \begin{inparaenum}[(1)] 
+\item Using the content of the tweets,
+\item Using the network information of the user. 
+\end{inparaenum}
+The first approach is based on the premise that the online content of a user is influenced by the geographical location of the user. Content-based location detection relies on a significantly large training dataset to build a statistical model that identifies words with a local scope. Use of these words in tweets are then used to narrow down the location of any user. The main disadvantage of this method is that to identify tweets from a given location, it is required that we have a set of good quality of tweets from this location to train the model. Cheng et al. \cite{cheng2010you} proposed a probabilistic framework for estimating a Twitter user's city-level location based on the content of approximately 1000+ tweets of each user. They estimate the spatial dispersion of a word and apply Laplace smoothing to overcome the sparsity of words across locations in their dataset. Their test dataset contained 5119 users with 1000+ tweets of each user. 51\%  of these users could be located down to their city-level. The average error distance was reported as 535.564 miles.
+%Disadv of network based 
+A network based solution requires the network information of a given user. 

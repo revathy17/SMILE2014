@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{paralist}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{listings} 
+\usepackage{booktabs}
+
+\lstloadlanguages{html,xml}
+\definecolor{grey}{rgb}{0.9,0.9,0.9} 
+\lstset{
+        tabsize=2, 
+        frame=single, 
+        breaklines=true, 
+        basicstyle=\footnotesize\ttfamily,
+        backgroundcolor=\color{grey},
+        xleftmargin=0mm,
+        xrightmargin=0mm,
+        captionpos=b
+}
+
+\usepackage{url}
+\urldef{\mailsa}\path|{revathy,pavan,amit}@knoesis.org|    
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\graphicspath{./images/}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}	
+
+\usepackage{color} 
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+\definecolor{blue}{rgb}{0.1,0.1,0.5}
+\newcommand{\attention}[1]{{\color{red}\textbf{#1}}}
+%\newcommand{\comment}[1]{\textit{\color{blue}#1}}
+%\newcommand{\comment}[2]{{\color{blue}\textit{\textbf{#1}}(\textit{#2})}}
+\newcommand{\comment}[2]{}
+
+%\newcommand{\softdelete}[1]{{\color{gray}\textit{#1}}}
+\newcommand{\softdelete}[1]{}
+
+\newcommand{\uri}[1]{\texttt{#1}}
+\newcommand{\literal}[1]{`\textit{#1}'}
+\newcommand{\BibTeX}{{\sc Bib}\TeX}
+\lstset{basicstyle=\small}
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Geo Tagging Twitter Users using Wikipedia}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Geo Tagging Twitter Users using Wikipedia}
+
+\author{Revathy Krishnamurthy\and Pavan Kapanipathi\and Amit Sheth}
+
+\authorrunning{R.Krishnamurthy\and P.Kapanipathi\and A.Sheth}
+
+\institute{
+Kno.e.sis Center, CSE Department\\
+Wright State University, Dayton, OH - USA \\
+}
+
+%\toctitle{Semantic Multicasting}
+\tocauthor{R.Krishnamurthy, P.Kapanipathi, A.Sheth}
+\maketitle
+
+\begin{abstract}
+As more and more people are taking to microblogging networks, like Twitter, as a primary source of their communication with the rest of the world, the analysis of user generated content has become increasingly significant for crisis management. To make the contents of a tweet actionable, we need to be able to determine the location of the user. A recent study has shown that approximately only 3.17\% of tweets are tagged with the user location. As tweets are generally informal in nature and contain many acronyms and slang words, researchers have focussed on using statistical methods for identification of words with a strong geographic scope and then use these words to identify the location of a user. But the biggest challenge in this approach is the requirement of a training dataset and creation of the statistical model, which can be a time consuming process. To this end, we propose an approach that uses Wikipedia as a background knowledge to analyse tweets in order to predict the location of the users. The main advantage of the proposed approach is that the use of Wikipedia eliminates the need for a training dataset. We show that initial tests with this approach allows us to locate 30\% of users within 100 miles of their actual location.
+
+%deleted:https://pressroom.usc.edu/twitter-and-privacy-nearly-one-in-five-tweets-divulge-user-location-through-geotagging-or-metadata
+\end{abstract}
+\input{introduction.tex}
+\input{related.tex}
+%\input{background.tex}
+%\input{architecture.tex}
+%\input{implementation.tex} 
+%\input{conclusion.tex}
+
+
+\bibliographystyle{plain}
+\bibliography{smile_2014}
+\end{document}

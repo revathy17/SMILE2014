@@ -1,0 +1,16 @@
+\section{Related Work}
+\label{sec:related}
+
+Related work can be considered from two different perspectives \begin{inparaenum}[(1)]
+  \item Distributed Social Networks and Semantics, and
+  \item Privacy in Social Networks. 
+\end{inparaenum}  
+This combination should lead to a distributed and privacy aware Social Web, as envisioned in the final report of the W3C Social Web Incubator Group ``Standards-based, Open and Privacy-aware Social Web'' \cite{incubator2010}. 
+
+Research on privacy in OSNs are prominently about misuse of private information and therefore providing more security~\cite{safebook}~\cite{characterizing2008}. Very few have done research where broadcasting of user content is taken into consideration. Work by B. Meeder et al. \cite{widespread2010} analyses the privacy breach for protected tweets by retweets. Our work more or less falls in the category of awareness in distribution of content. Next, gathering information about users from online social networks to form social graphs \cite{crawlgraph2010} \cite{interlinkinggraphs2009} has been really useful to leverage the powers of social graphs. Work by Matthew Rowe shows the creation of Social Graphs by exporting information from online social networks into semantic form using FOAF vocabulary \cite{interlinkinggraphs2009}. Further to this, few of the areas where the power of such Semantic Social Graphs is leveraged are in finding friends in federated social networks \cite{talash2011} and to disambiguate identity of users online \cite{personidentification2009}. 
+
+Efforts such as P3P or more recently policy systems such as Protune also enable rule-based access to content on the Web. However, they are not necessary suited to Web-based environment. Cuckoo \cite{cuckoo2010} is a decentralized P2P socio-aware microblogging system. It focuses on providing a reliable and scalable system to increasing the performance with respect to traditional centralized microblogging systems. Yet, they rely on a more complex architecture which is not only HTTP based and makes it difficult to deploy in practical Web-based environments. FETHR \cite{fethr2009} is another open and distributed microblogging system, that emphasizes about the scalability, privacy and security. While using a publish-subscribe approach, information is sent from the provider to all its subscriber (one of the reason while PuSH was build). More recently, \cite{weaving2011} is at a close proximity to our work but on mobile platforms. They provide a semantic social network for mobile platforms, but do not tackle the privacy aspect. In addition, larger open-source projects such as StatusNet or diaspora also enable distributed Social Networks using similar stacks (notably including PuSH and the Salmon protocol\footnote{\url{http://www.salmon-protocol.org/}} for pinging-back comments), but neither directly focus on on-demand and dynamic privacy settings.
+
+%Privacy
+%% TODO - Quote e-wallet
+%Both

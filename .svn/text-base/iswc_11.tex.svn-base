@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{paralist}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage{listings} 
+\lstloadlanguages{html,xml}
+\definecolor{grey}{rgb}{0.9,0.9,0.9} 
+\lstset{
+        tabsize=2, 
+        frame=single, 
+        breaklines=true, 
+        basicstyle=\footnotesize\ttfamily,
+        backgroundcolor=\color{grey},
+        xleftmargin=0mm,
+        xrightmargin=0mm,
+        captionpos=b
+}
+
+\usepackage{url}
+\urldef{\mailsa}\path|{pavan.kapanipathi, julia.anaya, alexandre.passant}@deri.org|    
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\graphicspath{./images/}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}	
+
+\usepackage{color} 
+\definecolor{gray}{rgb}{0.7,0.7,0.7}
+\definecolor{blue}{rgb}{0.1,0.1,0.5}
+\newcommand{\attention}[1]{{\color{red}\textbf{#1}}}
+%\newcommand{\comment}[1]{\textit{\color{blue}#1}}
+%\newcommand{\comment}[2]{{\color{blue}\textit{\textbf{#1}}(\textit{#2})}}
+\newcommand{\comment}[2]{}
+
+%\newcommand{\softdelete}[1]{{\color{gray}\textit{#1}}}
+\newcommand{\softdelete}[1]{}
+
+\newcommand{\uri}[1]{\texttt{#1}}
+\newcommand{\literal}[1]{`\textit{#1}'}
+\newcommand{\BibTeX}{{\sc Bib}\TeX}
+\lstset{basicstyle=\small}
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Privacy-Aware and Scalable Content Dissemination in Distributed Social Networks\thanks{This work is funded by Science Foundation Ireland --- Grant No. SFI/08/CE/I1380 (L\'{i}on-2) --- and by a Google Research Award. We would also like to thank Owen Sacco for his work on PPO and Fabrizio Orlandi for his feedback on SMOB.}}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Privacy-Aware Content Dissemination in Social Networks}
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+%\author{Pavan Kapanipathi\and Julia Anaya\and Alexandre Passant}
+%
+% (feature abused for this document to repeat the title also on left hand pages)
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\author{Pavan Kapanipathi\inst{1,2} \and Julia Anaya\inst{1} \and Amit Sheth\inst{2} \and Brett Slatkin\inst{3} \and Alexandre Passant\inst{1}}
+
+\authorrunning{P.Kapanipathi\and J.Anaya\and A.Sheth\and B.Slatkin\and A.Passant}
+
+\institute{
+Digital Enterprise Research Institute\\
+National University of Ireland, Galway\\
+{\textbraceleft julia.anaya, alexandre.passant\textbraceright@deri.org}
+\and
+Kno.e.sis Center, CSE Department\\
+Wright State University, Dayton, OH - USA \\
+{\textbraceleft pavan, amit\textbraceright@knoesis.org}
+\and
+Google, San Francisco, CA - USA \\
+bslatkin@google.com
+}
+%\mailsa\\
+%\url{http://www.deri.ie/}}
+
+%
+% NB: a more complex sample for affiliations and the mapping to the
+% corresponding authors can be found in the file "llncs.dem"
+% (search for the string "\mainmatter" where a contribution starts).
+% "llncs.dem" accompanies the document class "llncs.cls".
+%
+
+%\toctitle{Semantic Multicasting}
+\tocauthor{P. Kapanipathi, J. Anaya, A.Sheth, B. Slatkin, A. Passant}
+\maketitle
+
+\begin{abstract}
+Centralized social networking websites raise scalability issues --- due to the growing number of participants --- and policy concerns --- such as control, privacy and ownership of users' data. Distributed Social Networks aim to solve those by enabling architectures where people own their data and share it whenever and to whomever they wish. However, the privacy and scalability challenges are still to be tackled. % for these new architectures. 
+%%However, distributed broadcasting mechanisms such as Google's PubSubHubbub is being explored for social web to improve scalability, the privacy aspect is yet to be tackled. 
+Here, we present a privacy-aware extension to Google's PubSubHubbub protocol, using Semantic Web technologies, solving both the scalability and the privacy issues in Distributed Social Networks. We enhanced the traditional features of PubSubHubbub in order to allow content publishers to decide whom they want to share their information with, using semantic and dynamic group-based definition. We also present the application of this extension to SMOB (our Semantic Microblogging framework). Yet, our proposal is application agnostic, and can be adopted by any system requiring scalable and privacy-aware content broadcasting.
+%In this paper we present an Open and Privacy-aware architecture for social semantic web with focus on. 
+%For example: Microblogging serivces such as twitter has a follower/followee paradigm where anyone can follow any user and receive his/her posts
+\keywords{Semantic Web, Distributed Social Networks, Social Web, Privacy, FOAF, PubSubHubbub}
+\end{abstract}
+\input{introduction.tex}
+\input{background.tex}
+\input{architecture.tex}
+\input{implementation.tex} 
+\input{related.tex}
+\input{conclusion.tex}
+
+
+\bibliographystyle{plain}
+\bibliography{iswc_11}
+\end{document}

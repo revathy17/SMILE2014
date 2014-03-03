@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this paper, we described how we extended Google's PubSubHubbub protocol to cope with privacy-by-design in Distributed Social Network. We showed how we defined a way to broadcast content only to a subset of one's social graph, without having to hardcode user-group or specify static policies. Hence, our system can cope with dynamic groups and organizations without putting any burden on the user. Moreover, we have shown how we implemented this into SMOB, a Semantic and Distributed microblogging platform. Overall, our approach also shows how to combine pragmatic Social Web protocols and formats (PuSH and RSS/ Atom) with Semantic Web standards and vocabularies (SPARQL Update and PPO).
+%% TODO - Mention that so far we trust that information provided in the FOAF profiles is correct- and we will work on trust separately
+
+In the future, we will focus on enabling our architecture for mobile devices. Here, challenges will be to send information from and to devices that can be off-line from time to time, but still need to be notified. Also, we are considering to apply this architecture to Sensor Data, in order to deal with the management of sensitive information such as geolocation.
+%% TODO  - Describe challenges better

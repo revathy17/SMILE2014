@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{cheng2010you}
+Zhiyuan Cheng, James Caverlee, and Kyumin Lee.
+\newblock You are where you tweet: a content-based approach to geo-locating
+  twitter users.
+\newblock In {\em Proceedings of the 19th ACM international conference on
+  Information and knowledge management}, pages 759--768. ACM, 2010.
+
+\bibitem{morstatter2013sample}
+Fred Morstatter, J{\"u}rgen Pfeffer, Huan Liu, and Kathleen~M Carley.
+\newblock Is the sample good enough? comparing data from twitter’s streaming
+  api with twitter’s firehose.
+\newblock {\em Proceedings of ICWSM}, 2013.
+
+\bibitem{purohit2013emergency}
+Hemant Purohit, Carlos Castillo, Fernando Diaz, Amit Sheth, and Patrick Meier.
+\newblock Emergency-relief coordination on social media: Automatically matching
+  resource requests and offers.
+\newblock {\em First Monday}, 19(1), 2013.
+
+\end{thebibliography}

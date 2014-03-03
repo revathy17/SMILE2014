@@ -1,0 +1,183 @@
+
+\section{Extending PubSubHubbub for Privacy-Aware Content Dissemination}
+\label{sec:architecture}
+
+%\begin{figure}[t!]
+%\centering
+%\includegraphics[width = 9.0 cm]{./images/continuous_egypt_protests.png}
+%\vspace*{-0.75em}
+%\caption{Pipeline for event descriptions using Continuous Semantics.}
+%\label{fig:eventUpdateCycle}
+%\end{figure}
+
+%% TODO - Explain what is the issue with current PuSH approach - e.g. why we extend it, I added a subsection here that needs tobe filled
+\subsection{Motivations for Extending PuSH}
+%PuSH provides a distributed and hence scalable architecture compared to a centralized architecture. But the privacy issues in PuSH is similar to that of traditional microblogging services such as Twitter. Twitter almost decouples the publisher and the subscribers by providing minimal privacy settings to the user. The user can either make his account \textit{public} (default where everyone can view the content) or \textit{protected} (where only the user approved followers can view the content). Implementing PuSH protocol for OSNs brings in similar problems where the publisher can either broadcast his data (to all the subscribers) or not. For example, you find incidents where people have been fired from jobs because their content has reached undesired people in their network \footnote{http://www.huffingtonpost.com/2010/07/15/fired-over-twitter-tweets\_n\_645884.html}. On the contrary, when  the followers follow the user for a specific topic or a reason, they receive all microposts of the user, most of which might be inapplicable to them. Although, it is possible to maintain privacy in PuSH by creating one feed for each subscriber and restricting the updates; this is considered to be difficult at significant scale.
+
+%% ALex - I rephrased, hope that's ok
+PuSH provides a distributed architecture and hence more scalability compared to a centralized architecture, but it still does not implement any privacy policies. 
+In CSN such as Twitter, minimal privacy settings are provided to users. Users can either make their account \textit{public} (by default, everyone can view their content) or \textit{protected} (only approved followers can view their content). Yet, the lack of fine-grained privacy policies caused several incidents, such as people being fired because some content reached undesired people in their network\footnote{\url{http://www.huffingtonpost.com/2010/07/15/fired-over-twitter-tweets\_n\_645884.html}}. 
+
+Using PuSH in OSNs brings similar patterns where a publisher can either broadcast his data to all the subscribers or not. 
+% Using PuSH in OSNs brings similar patterns where a publisher can either broadcast his data to all the subscribers or not. 
+% Alex - i didn't unserdatnd this
+% On the contrary, Twitter followers receive all the followee microposts, not being possible to filter those microposts for instance, by hashtag. 
+Although it would be possible to enable finer-grained access control in PuSH by creating one feed per subscriber; this is considered to be difficult at significant scale.
+Therefore, we extend PubSubHubbub to feature user-controlled data dissemination. This allows one user to dynamically create groups of people who will receive a private post that remains hidden to other users.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[width = 10.0 cm]{./images/seq.png}
+%\vspace*{-0.75em}
+\caption{Sequence of Interactions.}
+\label{fig:sequence}
+\end{figure}
+
+\subsection{PuSH extension}
+%% Alex - what you mean by counter part ?
+%% Here we are presenting our protocol wrt the original PuSH Protocol. So I am explaining what are the parts extended.
+The Publisher and the Hub are extended with respect to their counter parts in the original PubSubHubbub protocol, while the Subscriber functionality is kept intact. Semantic Web technologies such as RDF, SPARQL and tools such as Triple-Stores are the primary modifications we brought. Following the original design principles of PuSH, the Hub manages most of the complexity of user content dissemination. Therefore, it is solely responsible for pushing feeds to the subscribers explicitly targeted by the publisher. We term this a ``Semantic Hub'' since it uses Semantic Web technologies and tools to perform this dynamic and private dissemination feature. This is detailed in Sections \ref{sec:foaf} and \ref{sec:broadcast}. 
+
+Fig. \ref{fig:sequence} illustrates the sequence of interactions between the main participants of the protocol. The ecosystem comprises of the Publisher, the Subscriber and the Semantic Hub. The sequence is divided into three parts \begin{inparaenum}[(1)]
+  \item \textit{Subscription process} by Subscriber-A (Sub-A) to the Publisher's feeds;
+  \item \textit{Updates notifications} by the Publisher (Pub) to the Semantic Hub (SemHub);
+  \item \textit{Updates pushes} to the Subscribers by the Semantic Hub.
+\end{inparaenum}
+
+The \textbf{\textit{Subscription Process}} is independent of the other two whereas the \textit{Updates notifications} and \textit{Updates pushes} happens in sequence. The communication steps in a subscription process begins with Sub-A requesting Pub for its feeds (S-1)\footnote{S-X refers to Step X in Fig. \ref{fig:sequence}}. Pub answers with a feed that includes the Topic URL and SemHub URL (S-2). Sub-A then requests the Semantic Hub to subscribe to Pub's feeds Topic URL (S-3). The first communication between Sub-A or any Subscriber with the Semantic Hub leads to the access of Sub-A/Subscriber's FOAF profile by the Semantic Hub (S-4 to S-7). This is further explained in Section \ref{sec:foaf}. The interactions that take place only in the first communication are illustrated by dashed lines in the Fig. \ref{fig:sequence}.
+
+In the \textbf{\textit{Updates Notification}} the flow starts with an \textit{item} generated by Pub. Once a new \textit{item} is created, Pub embeds its privacy preference for the \textit{item} in the feed. We detail the generation of privacy preferences and how they are embed in the feed in Section \ref{sec:privacy}. The preference is a set of SPARQL queries (also known as \textit{access space})
+%% Alex - saving space 
+% \footnote{Terminology from PPO}, 
+and represents a subset of the semantic social graph hosted in SemHub (Section \ref{sec:foaf}). 
+%% Alex - if the sections are previous one, do not need to link to them. Check all the cross-references in the paper to update this
+Once the privacy preferences are embed, Pub notifies an update to SemHub (S-i). Similar to Sub-A's first interaction with SemHub, Pub must also provide its FOAF profile to the Hub in order to enable privacy-aware dissemination (S-ii to S-v). This interaction happens only once between a Publisher and a Semantic Hub and is illustrated in Fig. \ref{fig:sequence} using dotted lines. As soon as the Semantic Hub is notified with the update,  SemHub fetches the feed from the Pub (S-vi). Each \textit{access space} for an \textit{item} is executed on the semantic social graph (S-vii). Only the matched Subscribers are eligible to receive the updated \textit{item} from the Publisher. 
+
+%% alex -> too long, split the next sentence
+\textbf{\textit{Updates pushes}} sequence (Fig. \ref{fig:sequence}) represents the privacy-aware dissemination of the updates only to Sub-A  because of the privacy settings of the Pub (S-viii). On the other hand, Sub-B does not receive the updates even though it is subscribed to Pub's topic.      
+
+   
+%% TODO - I don't understand how the title related to the content here ?
+%% Because we create Social Graphs for all the users communicating via the Hub. Is that wrong??
+%% Pavan: Yes, you are right. My first title was (Generating Social Graphs) but I think this was changed. I did keep this because I feel that if each user of SMOB uses his Own Hub then the Social Graphs are also distributed.
+\subsection{Distributed Social Graph}
+\label{sec:foaf}
+
+FOAF profiles play a crucial role in our architecture. They provide a means for authenticating (WebID) to a platform where users can dynamically create groups for a privacy-aware microblogging. The latter requires a Semantic Social Graph (SSG) where SPARQL queries represent a subset of the SSG --- which in-turn forms the dynamic group of people. Generation of the SSG in our protocol consists of collecting and linking the FOAF profiles of people who communicate via the Semantic Hub. 
+%% Alex - do not use "basically" and words that sounds like you were doing obvious things
+
+%% alex - I dont' understand - you should explain *why* we need FOAF profiles to PuSH
+%% Pavan - Isnt that clear in the previous paragraph where we mention that FOAF is used for dunamically creating groups??
+Although collecting the FOAF profiles can be done with secure connections and authorizations, the linking of FOAF profiles in terms of PubSubHubbub protocol required a vocabulary. Since SIOC does not consider communication protocols to represent users' social activities, it is not enough for linking the FOAF profiles using PuSH protocols for further usage. Hence, we created a lightweight vocabulary for PubSubHubbub on top of SIOC~\cite{Passant2010}.
+%% Alex - what do you mean by "SIOC for SMOB" ?
+%% Resolved.
+The description of the vocabulary and its usage is explained in the use case (Section \ref{sec:implementation}).
+
+ %PubSubHubbub\footnote{http://pubsubhubbub.googlecode.com/svn/trunk/pubsubhubbub-core-0.3.html}. Since the protocol is implemented for social networks, the vocabulary is centered around \textit{Topic}  that is the URL to follow a user $(sioc:Item)$. For every user new useraccount $(sioc:userAccount)$ is linked to his FOAF profile $(foaf:Person)$. \textit{Topic} is created $(sioc:has_creator)$ by a \textit{Publisher} $(User - foaf:Person)$. \textit{Topic} has $(sioc:has_subscriber)$ many \textit{Subscribers} $(foaf:person)$. \textit{Topic} is sent $(sioc:has_moderator)$ to the Subscriber to the Publisher via the \textit{Semantic Hub}. The only new inclusion in the vocabulary is to represent the callback URLs of the Subscriber. Subscriber $(foaf:Person) (smob:has_callback)$ (callback URL resource).
+
+
+The Semantic Hub uses a triplestore with a SPARQL endpoint to store the RDF data such as the FOAF profiles. The detailed process of collecting, storing and linking the FOAF profiles to enable a Semantic Social Graph is as follows
+%The importance of Mapping between people for a connected social network graph\textbf{[Reference:How the Semantic Web is Being Used: An Analysis of FOAF Documents]}.  
+%FOAF Profiles Request to Publishers and Subscribers and adding it to the RDF store
+%% Alex - Always use "Fig. X" and not "fig X"
+As illustrated in Fig. \ref{fig:sequence}, the Semantic Hub gathers user's profiles during the registration for publishing/subscribing in the following sequence. 
+\begin{enumerate}
+\item The user sends a requests for publishing/subscribing at the Semantic Hub.
+\item Before acknowledging for publishing/subscription, the Semantic Hub requests the user's FOAF profile. 
+\item The user authenticates to the Semantic Hub using WebID, further providing a secure connection to the user's personal information stored in FOAF format.  As it can be inferred from the sequence, the Semantic Hub has its own WebId URI and certificate for the users to authenticate. 
+\item The Semantic Hub stores the FOAF profiles with added necessary information about subscriber and publisher in the RDF store. The generation of necessary information in case of SMOB is presented in Section \ref{sec:implementation}.
+\end{enumerate}
+\comment{Pavan}{Please add the RDF triples to be inserted into the store}
+
+\subsection{Generating Privacy Preference}
+\label{sec:privacy}
+
+%Integrating the Privacy Preference ontology
+Creating SSG helps to dynamically extract groups of subscribers from the publisher's social network who are eligible to receive the publisher's post. To do so, the publisher must create preferences to restrict which users can access the data. These preferences are defined using PPO based on \begin{inparaenum}[(i)]
+  \item SPARQL queries defining \textit{access spaces} to represent a subset of the SSG that can access the data (e.g. people interested in ``Semantic Web'' among my friends) and
+  \item conditions to match \textit{items} that must be delivered with their corresponding \textit{access space}. 
+\end{inparaenum}
+%ThisIn this section we describe the process of creating the privacy preferences for the Publisher. 
+
+Our implementation provides a user-friendly interface to formulate SPARQL queries where no knowledge about SPARQL or Semantic Web is required (Section \ref{sec:implementation}). Formulating \textit{access spaces} for each \textit{item} to be published is not practical. 
+%% Alex - I dont' understand the relation between the unpracticality and PPI ?
+%% Pavan: This is because we need to provide some kind of classification (Hashtags as in SMOB) to create the privacy preference. If we ask the users to create privacy preference for each item then its not practical
+%% Therefore, the Privacy Preferences are modeled using PPO that provides fine grained restrictions for resources. 
+The privacy settings for \textit{items} can have conditions to categorize an item and assign \textit{access space} for the corresponding category. For example, the privacy preference in Fig. \ref{fig:ppo} restricts any document tagged with \textit{Semantic Web} (categorizing by tags) from the publisher to only those users who share an interest in \textit{Semantic Web}.
+% to the same concept (category) used to tag the post. 
+Since the Privacy Preferences are represented in RDF, a triple store is necessary at the publisher to store and retrieve the privacy settings.
+
+\begin{figure}[htpb]
+\begin{lstlisting}
+<http://example.org/privacy/3> a ppo:PrivacyPreference;
+    ppo:appliesToResource 
+    	<http://xmlns.com/foaf/0.1/Document>;
+    ppo:hasCondition [
+      ppo:hasProperty tag:Tag;
+      ppo:resourceAsObject 
+      	dbpedia:Semantic_Web
+    ];
+   ppo:assignAccess acl:Read;
+   ppo:hasAccessSpace [
+     ppo:hasAccessQuery "SELECT ?user WHERE { 
+     	?user foaf:topic_interest dbpedia:Semantic_Web }"
+  ] .
+\end{lstlisting}
+\caption{Example SMOB Privacy Preference Filtering.}
+\label{fig:ppo}
+\end{figure}
+%RDF store associated to store the data
+%Need to talk about how the user has to create the categories for representing a post in RDF and therefore providing the access space for it. For example, SMOB uses the Hash tags as a form of categorizing the privacy preferences
+%\comment{PAVAN}{Should the example be more Linked data oriented? Select users %whose topic of interest is one step related to Semantic web}
+
+%% TODO - Explain that we encapsulate this in SMOB
+%% alex - sometimes you talk about Social Graph, sometimes Semantic Social Graph and here "social network graph". Be consistent and use the same terminology everywhere
+Each \textit{access space} is a subset of the SSG in the Semantic Hub, which in turn is the list of subscribers who are eligible to receive the post. Our implementation of privacy settings for a SMOB user embeds a default \textit{access space} for the microposts that do not have any predefined privacy settings. If there are more \textit{access spaces} then all are embedded into the RSS. Embedding \textit{access spaces} into RSS will include another element \texttt{<privacy>} for each item/post in the RSS/Atom feed. An example of RSS \textit{item} including the privacy preferences is shown in Fig. \ref{fig:rss}. The \texttt{<privacy>} element comprises of each \textit{access space} as a child element \texttt{<accessspace>}. Also, it allows us to simply reuse and extend RSS / Atom to pass the policies from the publisher to the Hub. The Semantic Hub then uses the embedded \textit{access spaces} to filter the list of subscribers to only those who can receive the \textit{item}. 
+
+%% TODO - Make clear that the hub can run the SPARQL queries, i.e. has the list of people in the hub, using WebID, etc.
+
+%Generation of the RSS feed
+\begin{figure}[htpb]
+\begin{lstlisting}
+<item>
+	<title>Only Friends</title>
+	<description>
+		Send this to only people I know and 
+		interested in Semantic Web
+	</description>
+	<link>http://example.org/rss</link>
+	<guid>123123123123</guid>
+	<pubDate>March 06 2001</pubDate>
+	<privacy>
+		<accessspace>
+			SELECT ?user WHERE {
+			foaf:me foaf:knows ?user . 
+			?user foaf:topic_interest dbpedia:Semantic_Web . }
+		</accessspace>
+		...
+	</privacy>
+</item>
+\end{lstlisting}
+\caption{Access space embedded in an RSS feed .}
+\label{fig:rss}
+\end{figure}
+
+%\comment{PAVAN}{Rephrase and Position this where ever suitable}Publishers can also take advantage of their own social graph present in the FOAF profile. For example, A privacy preferece for a post can have an access query to Select only those people whom I know (\texttt{foaf:knows}) and who have subscribed to me.
+
+\subsection{Semantic Dissemination of Content}
+\label{sec:broadcast}
+
+The final step of the protocol is to disseminate the publisher's content based on the privacy settings for the content. Once the post and its privacy settings are updated in the feed by the publisher, the publisher notifies the Semantic Hub for updates. The Semantic Hub pulls the updated feed and parses it to fetch the updates and the corresponding \textit{access spaces}. 
+
+Every updated item in the feed has its own set of \textit{access spaces}. The process for multicasting each item is as follows:
+
+\begin{enumerate}
+\item Each \textit{access space} for the item is queried on the SSG at the Semantic Hub's RDF store. The result is a subset of the SSG that matches the \textit{access space} executed. 
+%% alex - same here "social graph" ? Semantic Social GRaph ? Also be consistent with the case. 
+\item Union of all the subsets of the SSG retrieved by executing the \textit{access spaces}, comprises of the subscribers who are eligible for receiving the \textit{item}.  
+\item As illustrated in the Fig. \ref{fig:rss} the RSS/Atom \textit{items} in the feed also comprises of its own \textit{access spaces} in the \texttt{<privacy>}  element. However, the \textit{item} with the \textit{access spaces}, if broadcasted will let the subscribers be aware of the privacy settings of the publishers. Therefore, to maintain the privacy of the publishers, the \texttt{<privacy>}  element is deleted from each \textit{item} at the Semantic Hub.
+\item The modified \textit{item} is then sent to only the callback URLs of the filtered subscribers list from step 2. 
+\end{enumerate}
+%Delivery of the RSS/Atom content
+
+%TODO: work to be done for new subscriptions 

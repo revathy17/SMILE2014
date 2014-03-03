@@ -1,0 +1,231 @@
+@techreport{incubator2010,
+	title = {{A Standards-based Open and Privacy-aware Social web. Technical report}},
+	type = {W3C Incubator Group Report 6th December 2010},
+	year = {2010},
+	Institution = {World Wide Web Consortium},
+	note = {\url{http://www.w3.org/2005/Incubator/socialweb/XGR-socialweb-20101206/}},
+	howpublished = {\url{http://www.w3.org/2005/Incubator/socialweb/XGR-socialweb-20101206/}},
+	editor = {Harry Halpin and Mischa Tuffield},
+}
+
+@misc{pushspec,
+  author = {{Brad Fitzpatrick, Brett Slatkin, Martin Atkins}},
+  title = {{PubSubHubbub Core 0.3 -- Working Draft}},
+  howpublished = {\url{http://pubsubhubbub.googlecode.com/svn/trunk/pubsubhubbub-core-0.3.html}},
+}
+
+
+@article{facebookscale,
+  title = {{High Performance at Massive Scale – Lessons learned at Facebook}},
+  author = {Jeff Rothschild},
+  type = {CNS Lecture Series, University of California, San Diego},
+  howpublisher = {\url{http://cns.ucsd.edu/lecturearchive09.shtml#Roth}},
+  date = {Thursday, October 8, 2009},
+}
+
+@article{fbprivacy,
+  author = {Danah Boyd and Eszter Hargittai},
+  year = {2010},
+  title = {Facebook Privacy Settings: Who Cares?},
+  journal = {First Monday},
+  volume = {15},
+  number = {8},
+}
+
+@inproceedings{cuckoo2010,
+ author = {Xu, Tianyin and Chen, Yang and Fu, Xiaoming and Hui, Pan},
+ title = {Twittering by cuckoo: decentralized and socio-aware online microblogging services},
+ booktitle = {Proceedings of the ACM SIGCOMM 2010 conference on SIGCOMM},
+ series = {SIGCOMM '10},
+ year = {2010},
+ isbn = {978-1-4503-0201-2},
+ location = {New Delhi, India},
+ pages = {473--474},
+ numpages = {2},
+ url = {http://doi.acm.org/10.1145/1851182.1851270},
+ doi = {http://doi.acm.org/10.1145/1851182.1851270},
+ acmid = {1851270},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {microblogging services, online social networking, peer-to-peer systems},
+} 
+
+@inproceedings{crawlgraph2010, 
+author={Shaozhi Ye and Juan Lang and Felix Wu}, 
+booktitle={Web Conference (APWEB), 2010 12th International Asia-Pacific}, title={Crawling Online Social Graphs}, 
+year={2010}, 
+month={april}, 
+volume={}, 
+number={}, 
+pages={236 -242}, 
+keywords={OSN graph crawling;data collection;data set analysis;graph property;node selection;online social graph;online social network;partial data set;privacy control policy;sample size;data privacy;social networking (online);}, 
+doi={10.1109/APWeb.2010.10}, 
+ISSN={},}
+
+@inproceedings{talash2011,
+	title = {{Talash : Friend Finding In Federated Social Networks}},
+	author = {Ruturaj Dhekane and Brion Vibber},
+	booktitle = {{Proceedings of the Fourth Workshop on Linked Data on the Web (LDOW2011) at WWW2011}},
+	year = {2011}
+}
+
+@inproceedings{interlinkinggraphs2009,
+    author = {Matthew Rowe},
+    title = {Interlinking distributed social graphs},
+    booktitle = {In Linked Data on the Web Workshop, WWW2009,April2009},
+    year = {2009}
+}
+
+@inproceedings{sioc2009,
+  author = {John Breslin and Uldis Bojars and Alexandre Passant and Sergio Fern\`{a}ndez and Stefan Decker},
+  booktitle = {W3C Workshop on the Future of Social Networking},
+  interhash = {2bff5ce7bcf1792853ec7d80a9b34d19},
+  intrahash = {0177b736bfabcac00133fd7515c6a9e7},
+  title = {{SIOC: Content Exchange and Semantic Interoperability Between Social Networks}},
+  year = 2009,
+  timestamp = {2009-01-06T09:50:36.000+0100},
+  keywords = {ctic deri me sioc socialnetwork},
+  added-at = {2009-01-06T09:50:36.000+0100},
+  biburl = {http://www.bibsonomy.org/bibtex/20177b736bfabcac00133fd7515c6a9e7/wikier},
+  month = {January}
+}
+
+@article{socialnetworkinsemweb2005,
+	title = {{Social networking on the semantic web}},
+	author = {Tim Finin and Li Ding and Lina Zhou and Anupam Joshi,},
+	booktitle = {Learning Organization, The},
+	volume = {12},
+	year = {2005}
+}
+
+@inproceedings{fethr2009,
+    author = {D. R. Sandler and D. S. Wallach},
+    title = {Birds of a FETHR: Open, decentralized micropublishing},
+    booktitle = { In IPTPS'09: Proc. of the 8th International Workshop on Peer-to-Peer Systems, Boston, MA, USA, April 2009},
+    year = {2009}
+}
+
+@inproceedings{weaving2011,
+author = {Sebastian Tramp and Philipp Frischmuth and Natanael Arndt and Timofey Ermilov and Sören Auer},
+title = {Weaving a Distributed, Semantic Social Network for Mobile Users},
+booktitle = {8th Extended Semantic Web Conference (ESWC2011)},
+year = {2011},
+month = {June}
+}
+
+@misc{foaf2004,
+  author = {Dan Brickley and Libby Miller},
+  title = {{FOAF Vocabulary Specification 0.98. Namespace Document 9 August 2010 - Marco Polo Edition}},
+  year = {2010},
+  howpublished = {\url{http://xmlns.com/foaf/spec/}}
+}
+
+@misc{socialgraph2007,
+    author = {Brad Fitzpatrick and David Recordon},
+    title = {{Thoughts on the Social Graph}},
+    howpublished = {\url{http://bradfitz.com/social-graph-problem}},
+    year = {2007},
+    month = {August},
+    day = {17}
+}
+
+@inproceedings{anafoaf2005,
+author = {Li Ding and Lina Zhou and Timothy W. Finin and Anupam Joshi},
+title = {How the Semantic Web is Being Used: An Analysis of FOAF Documents},
+booktitle = {Hawaii International Conference on System Sciences},
+doi = {10.1109/HICSS.2005.299},
+masid = {1826482}
+}
+
+
+@inproceedings{Yeung2009Decentralisations,
+  author = {Ching man Au Yeung and Ilaria Liccardi and Kanghao Lu and Oshani Seneviratne and Tim Berners-Lee},
+  booktitle = {W3C Workshop on the Future of Social Networking Position Papers },
+  interhash = {e425e5c276ddb0c7e580571b3610cf75},
+  intrahash = {a69a0b9b6e32c1e7fb58bc77e932bdf4},
+  title = {Decentralization: The Future of Online Social Networking},
+  url = {http://www.w3.org/2008/09/msnws/papers/decentralization.pdf},
+  year = 2009,
+  timestamp = {2009-02-04T08:57:35.000+0100},
+  keywords = {annotation beyond-btc distributed kat security social web},
+  added-at = {2009-02-04T08:57:35.000+0100},
+  biburl = {http://www.bibsonomy.org/bibtex/2a69a0b9b6e32c1e7fb58bc77e932bdf4/casi}
+}
+
+@inproceedings{privacypref2010,
+        Author = {Owen Sacco and Alexandre Passant},
+        Booktitle = {Proceedings of the Linked Data on the Web Workshop, LDOW2011},
+        Title = {{A Privacy Preference Ontology (PPO) for Linked Data}},
+        Year = {2011}
+}
+
+@misc{wacl,
+  title ={{W3C ACL System}},
+  howpublished = {\url{http://www.w3.org/2001/04/20-ACLs.html}},
+  author = {Eric Prud'hommeaux},
+}
+
+
+@inproceedings{webid2009,
+    author = {Henry Story and Bruno Harbulot and Ian Jacobi and Mike Jones},
+    Booktitle = {{European Semantic Web Conference, Workshop: SPOT2009.}},
+    title = {{FOAF+SSL: RESTful Authentication for the Social Web ⋆}},
+    year = {2009}
+}
+
+@incollection {Webscale2010,
+   author = {Simmhan, Yogesh and Gomadam, Karthik},
+   affiliation = {Microsoft Research},
+   title = {Social Web-Scale Provenance in the Cloud},
+   booktitle = {Provenance and Annotation of Data and Processes},
+   series = {Lecture Notes in Computer Science},
+   editor = {McGuinness, Deborah and Michaelis, James and Moreau, Luc},
+   publisher = {Springer Berlin / Heidelberg},
+   isbn = {},
+   pages = {298-300},
+   volume = {6378},
+   url = {http://dx.doi.org/10.1007/978-3-642-17819-1_39},
+   note = {10.1007/978-3-642-17819-1_39},
+   year = {2010}
+}
+
+@inproceedings{characterizing2008,
+author = {Balachander Krishnamurthy and Craig E. Wills},
+title = {Characterizing privacy in online social networks},
+booktitle = {Proceedings of the first workshop on Online social networks - WOSP 08},
+year = {2008}
+}
+
+@inproceedings{Passant2010,
+        Author = {Alexandre Passant and John Breslin and Stefan Decker},
+        Booktitle = {{Proceedings of the 10th International Conference on Web Engineering, ICWE'10}},
+        Title = {{Rethinking Microblogging: Open, Distributed, Semantic}},
+        Year = {2010}}
+
+@article{safebook, 
+title={Safebook: A privacy-preserving online social network leveraging on real-life trust}, 
+volume={47}, 
+url={http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=5350374}, 
+number={12}, 
+journal={IEEE Communications Magazine}, 
+author={Cutillo, Leucio and Molva, Refik and Strufe, Thorsten}, 
+year={2009}, 
+pages={94--101}}
+
+@article{widespread2010,
+    author = {Brendan Meeder and Jennifer Tam and Patrick Gage Kelley and Lorrie Faith Cranor},
+    title = {RT@IWantPrivacy: Widespread Violation of Privacy Settings in the Twitter Social Network},
+    year = {2010},
+    booktitle = { Web 2.0 Privacy and Security Workshop, IEEE Symposium on Security and Privacy}
+}
+
+@incollection {personidentification2009,
+   author = {Rowe, Matthew},
+   title = {Applying Semantic Social Graphs to Disambiguate Identity References},
+   booktitle = {The Semantic Web: Research and Applications},
+   series = {Lecture Notes in Computer Science},
+   publisher = {Springer Berlin / Heidelberg},
+   pages = {461-475},
+   volume = {5554},
+   year = {2009}
+}

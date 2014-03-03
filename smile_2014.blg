@@ -1,0 +1,45 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: smile_2014.aux
+The style file: plain.bst
+Database file #1: smile_2014.bib
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            513 strings with 4682 characters,
+and the built_in function-call counts, 1160 in all, are:
+= -- 111
+> -- 69
+< -- 1
++ -- 27
+- -- 24
+* -- 82
+:= -- 200
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 43
+empty$ -- 77
+format.name$ -- 24
+if$ -- 240
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 22
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 33
+stack$ -- 0
+substring$ -- 47
+swap$ -- 13
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 0
+while$ -- 9
+width$ -- 4
+write$ -- 35
