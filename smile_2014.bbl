@@ -1,0 +1,47 @@
+\begin{thebibliography}{1}
+
+\bibitem{bo2012geolocation}
+HAN Bo and Paul COOK1~Timothy BALDWIN.
+\newblock Geolocation prediction in social media data by finding location
+  indicative words.
+\newblock {\em Proceedings of COLING 2012: Technical Papers}, pages 1045--1062,
+  2012.
+
+\bibitem{cheng2010you}
+Zhiyuan Cheng, James Caverlee, and Kyumin Lee.
+\newblock You are where you tweet: a content-based approach to geo-locating
+  twitter users.
+\newblock In {\em Proceedings of the 19th ACM international conference on
+  Information and knowledge management}, pages 759--768. ACM, 2010.
+
+\bibitem{ferrara2012web}
+Emilio Ferrara, Pasquale De~Meo, Giacomo Fiumara, and Robert Baumgartner.
+\newblock Web data extraction, applications and techniques: a survey.
+\newblock {\em arXiv preprint arXiv:1207.0246}, 2012.
+
+\bibitem{mcgee2013location}
+Jeffrey McGee, James Caverlee, and Zhiyuan Cheng.
+\newblock Location prediction in social media based on tie strength.
+\newblock In {\em Proceedings of the 22nd ACM international conference on
+  Conference on information \& knowledge management}, pages 459--468. ACM,
+  2013.
+
+\bibitem{mendes2011dbpedia}
+Pablo~N Mendes, Max Jakob, Andr{\'e}s Garc{\'\i}a-Silva, and Christian Bizer.
+\newblock Dbpedia spotlight: shedding light on the web of documents.
+\newblock In {\em Proceedings of the 7th International Conference on Semantic
+  Systems}, pages 1--8. ACM, 2011.
+
+\bibitem{morstatter2013sample}
+Fred Morstatter, J{\"u}rgen Pfeffer, Huan Liu, and Kathleen~M Carley.
+\newblock Is the sample good enough? comparing data from twitter’s streaming
+  api with twitter’s firehose.
+\newblock {\em Proceedings of ICWSM}, 2013.
+
+\bibitem{purohit2013emergency}
+Hemant Purohit, Carlos Castillo, Fernando Diaz, Amit Sheth, and Patrick Meier.
+\newblock Emergency-relief coordination on social media: Automatically matching
+  resource requests and offers.
+\newblock {\em First Monday}, 19(1), 2013.
+
+\end{thebibliography}
