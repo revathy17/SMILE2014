@@ -19,9 +19,17 @@ Mendes et al. \cite{mendes2011dbpedia} proposed \textit{Inverse Candidate Freque
 	ICF(i) = \log |C|- \log n
 \end{equation}
 
-\subsection{Annotation of Tweets}
+\subsection{Location Estimation}
+We used Zemanta\footnote{http://www.zemanta.com} to annotate tweets. It maps entities in the input text to Wikipedia pages.
 
+For a user U, let $T_{u}$ be the set of their tweets, $Z_{u}$ = \{$z_{1}$,$z_{2}$,...,$z_{k}$\} be the set of entities annotated by Zemanta that map to a Wikipedia url. Let |$z_{k}$| represent the cardinality $z_{k}$ in $T_{u}$. Let C be the set of cities in out dataset and $\forall$ $c_{j}$ $\in$ C, let $L$ be the set of its internal wiki links where \textit{ICF}($l_{i}$) is the score $\forall$ $l_{i}$ $\in$ L.
 
+For the user U we compute the score of each city in our set as:
+\begin{equation}
+	Score(c_{j}) = \sum_{i=1}^I |l_{i}| \times ICF(l_{i})\qquad  \forall l_{i} \in Z_{u}
+\end{equation}
+
+We tag the city with the maximum score as the location of the user.
 
 
 
