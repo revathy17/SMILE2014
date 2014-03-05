@@ -1,3 +1,7 @@
-\section{Conclusion}
+\section{Conclusion and Future Work}
 \label{sec:conclusion}
+In this paper, we have presented an approach that leverages Wikipedia to determine location of Twitter users. With a preliminary evaluation we have showed that the approach performs well with an accuracy of approximately 30\% for 1000 random users selected from the datasets exposed by other existing approaches. This performance beats the baseline by over 10\%. While the existing approaches (network-based and content-based) require training data for predicting users' locations, with this approach we have introduced an alternative that can perform the same task by leveraging crowd-sourced background knowledge. 
+
+In future we would like to explore other scoring techniques for entities for both \begin{inparaenum} \item creating background knowledge for cities and \item entities scoring from users' tweets \end{inparaenum}. Specifically, the creating of background knowledge presently uses \textit{ICF} which reflects the discriminative ability of the entity. However, we need to focus the usage of the entity for a particular city which is yet to be explored. We also acknowledge the limitation of this approach to be the coverage of Wikipedia., i.e. cities that are not present in Wikipedia will be ignored by our approach. We intend to explore other geo-datasets on LOD that can provide us with appropriate information to adapt to our approach.      
+ 
 
