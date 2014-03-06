@@ -29,6 +29,7 @@
 \usepackage{listings} 
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{wrapfig}
 
 \lstloadlanguages{html,xml}
 \definecolor{grey}{rgb}{0.9,0.9,0.9} 
@@ -90,7 +91,7 @@ Wright State University, Dayton, OH - USA \\
 \maketitle
 
 \begin{abstract}
-As more and more people are taking to microblogging networks, like Twitter, as a primary source of their communication with the rest of the world, the analysis of user generated content has become increasingly significant for crisis management. To make the contents of a tweet actionable, we need to be able to determine the location of the user. A recent study has shown that only 3.17\% of tweets are geotagged. As tweets are generally informal in nature and contain many acronyms and slang words, researchers have focussed on using statistical methods for identification of words with a strong geographic scope and then use these words to identify the location of a user. But the biggest challenge in this approach is the requirement of a training dataset and creation of the statistical model, which can be a time consuming process. To this end, we propose an approach that uses Wikipedia as a background knowledge to analyse tweets in order to predict the location of the users. The main advantage of the proposed approach is that the use of Wikipedia eliminates the need for a training dataset. We show that initial tests with this approach allows us to locate 30\% of users within 100 miles of their actual location.
+Prior knowledge of geographical locations of Twitter users will facilitate improved crisis management. However, a recent study has shown that only 3.17\% of tweets are geotagged. Existing approaches are supervised and require training datasets to predict locations. Since crisis management is time-sensitive, the requirement of training data forms a bottleneck due to the time consuming process of creation of statistical models by crawling for tweets for each location needed. To this end, we propose an unsupervised approach that uses Wikipedia as a background knowledge to analyse tweets in order to predict the location of the users. This eliminates the need for a training dataset. We show that initial experiments beats the baselines of existing approaches with an accuracy of approximately 30\%.
 
 %deleted:https://pressroom.usc.edu/twitter-and-privacy-nearly-one-in-five-tweets-divulge-user-location-through-geotagging-or-metadata
 \end{abstract}
