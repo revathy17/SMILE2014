@@ -2,13 +2,16 @@
 \section{Evaluation}
 \label{sec:evaluation}
 
+\subsection{Dataset}
+From the test dataset published by \cite{cheng2010you}, we randomly selected 935 users from United States. These users were distributed across 48 states. For each user, the dataset contains approximately 1000+ tweets. To create our knowledgebase, we selected 1670 cities in the United States of America having population greater than 20000. The entire collection of Wikipedia is available for download\footnote{\url{http://en.wikipedia.org/wiki/Wikipedia:Database_download/}}. We use the dump dated 14-Feb-2014 to extract the internal links from the Wikipedia pages of all the cities in our dataset. 
+
 \subsection{Evaluation Metrics}
-We use the two metrics defined in \cite{cheng2010you} to evaluate our system \begin{inparaenum}[(1)] \item Accuracy \item Average Error Distance \end{inparaenum}
+We use the two metrics defined in \cite{cheng2010you} to evaluate our system \begin{inparaenum}[(1)] \item Accuracy \item Average Error Distance \end{inparaenum}. 
 Accuracy is defined as the number of users identified within 100 miles of their actual location.
 Error distance is the distance between the actual location of the user and the estimated location by our algorithm. Average Error Distance is the average of the error distance across all users.
 
 \subsection{Experimental Results}
-We evaluated our approach on 594 users with 1000+ tweets each. These users are distributed across United States. Figure X shows the distribution of the users. Using our approach we could locate 30\% of the users within 100 miles of their actual location. Table \ref{table:wikilinks} shows the local words identified using Wikipedia, in the tweets of these users.
+Our approach was able to locate 30.16\% of the users within 100 miles of their actual location and the Average Error Distance across the 935 users was 886.25 miles. These users were distributed across 46 states. Table \ref{table:wikilinks} shows a sample of the local words identified using Wikipedia, in the tweets of these users.
 
 \begin{table}
 \begin{tabular}{|p{3cm}|p{8cm}|}
@@ -29,10 +32,6 @@ We evaluated our approach on 594 users with 1000+ tweets each. These users are d
 \caption{Wikipedia Links Annotated in Tweets}
 \label{table:wikilinks}
 \end{table}
-%%{Las Vegas, Nevada}&{Bellagio (resort and casino); Hard Rock Cafe; Mandalay Bay;Las Vegas Hotel and Casino; Showgirls; McCarran International Airport}\\
-%{Portland, Maine}&{Portland Museum of Art; Old Port; Peaks Island; Portland Head Light}\\
-%{Detroit}&{Hockeytown; Detroit Red Wings; General Motors; Detroit Yacht Club; Belle Isle Park}\\
-%{Phoenix, Arizona}&{Chase Field; Downtown Phoenix; Cave Creek, Arizona;Maricopa County, Arizona} \\
-%{Pittsburgh}&{Forbes; Fort Pitt Tunnel; Pittsburgh Steelers; Luke Ravenstahl; University of Pittsburgh; Station Square; PNC Park; Pittsburgh Penguins;}\\
+
 
 
